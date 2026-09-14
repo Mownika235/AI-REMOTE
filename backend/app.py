@@ -1,4 +1,4 @@
-
+git
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -92,7 +92,8 @@ def chat(request: ChatRequest):
     }
 
 
-    system_prompt =instructions.get(
+    system_prompt =
+        instructions.get(
             request.mode,
             instructions["Friendly"]
         )
@@ -114,7 +115,8 @@ def chat(request: ChatRequest):
         )
 
 
-        answer =response.output_text
+        answer =
+            response.output_text
 
 
         return {
