@@ -92,8 +92,7 @@ def chat(request: ChatRequest):
     }
 
 
-    system_prompt =
-        instructions.get(
+    system_prompt =instructions.get(
             request.mode,
             instructions["Friendly"]
         )
@@ -115,8 +114,7 @@ def chat(request: ChatRequest):
         )
 
 
-        answer =
-            response.output_text
+        answer = response.output_text
 
 
         return {
