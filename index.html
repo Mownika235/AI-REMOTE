@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Remote</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo-area">
+            <div class="logo">✨</div>
+
+            <div>
+                <h2>AI Remote</h2>
+                <p>Your joyful AI space</p>
+            </div>
+        </div>
+
+        <button class="new-chat" onclick="newChat()">
+            ＋ New Chat
+        </button>
+
+        <div class="menu">
+
+            <p class="menu-title">YOUR SPACE</p>
+
+            <button class="menu-item active">
+                💬 AI Chat
+            </button>
+
+            <button class="menu-item">
+                💡 Ideas
+            </button>
+
+            <button class="menu-item">
+                📚 Study Buddy
+            </button>
+
+            <button class="menu-item">
+                💻 Coding
+            </button>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <div class="upgrade-card">
+                <span>🚀</span>
+
+                <div>
+                    <b>More coming!</b>
+                    <p>New AI tools soon.</p>
+                </div>
+            </div>
+
+            <button class="menu-item" onclick="toggleTheme()">
+                🌙 Dark Mode
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <div class="mobile-logo">
+                ✨ <b>AI Remote</b>
+            </div>
+
+            <div class="top-actions">
+
+                <button class="top-button" onclick="downloadChat()">
+                    📥
+                </button>
+
+                <button class="top-button" onclick="newChat()">
+                    🗑️
+                </button>
+
+                <div class="online">
+                    <span></span>
+                    AI Online
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CHAT AREA -->
+        <section class="chat-area" id="chatArea">
+
+            <!-- WELCOME SCREEN -->
+            <div class="welcome" id="welcome">
+
+                <div class="welcome-badge">
+                    ✨ Welcome to your AI space
+                </div>
+
+                <h1>
+                    Good Morning! 👋
+                    <span>What are we creating today?</span>
+                </h1>
+
+                <p class="subtitle">
+                    Ask anything, learn something new, build ideas,
+                    or simply have fun with AI Remote.
+                </p>
+
+
+                <!-- QUICK CARDS -->
+                <div class="quick-cards">
+
+                    <button onclick="quickPrompt('Explain cloud computing like I am a complete beginner.')">
+                        <div class="card-icon">💡</div>
+                        <b>Explain Something</b>
+                        <p>Learn difficult topics easily.</p>
+                    </button>
+
+
+                    <button onclick="quickPrompt('Teach me Java loops with a very simple example.')">
+                        <div class="card-icon">💻</div>
+                        <b>Help Me Code</b>
+                        <p>Learn coding step by step.</p>
+                    </button>
+
+
+                    <button onclick="quickPrompt('Create a simple study plan for learning DBMS.')">
+                        <div class="card-icon">📚</div>
+                        <b>Study With Me</b>
+                        <p>Make learning easier.</p>
+                    </button>
+
+
+                    <button onclick="quickPrompt('Give me a creative AI project idea for a hackathon.')">
+                        <div class="card-icon">🚀</div>
+                        <b>Build An Idea</b>
+                        <p>Create something amazing.</p>
+                    </button>
+
+                </div>
+
+
+                <div class="features">
+
+                    <span>🎤 Voice Input</span>
+                    <span>🧠 AI Modes</span>
+                    <span>📥 Export Chat</span>
+                    <span>🌈 Colorful UI</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- MESSAGES WILL COME HERE -->
+            <div id="messages"></div>
+
+        </section>
+
+
+        <!-- MESSAGE BOX -->
+        <section class="composer-area">
+
+            <div class="mode-container">
+
+                <button class="mode-button" onclick="changeMode()">
+                    ✨ <span id="modeText">Friendly</span> ▾
+                </button>
+
+                <div class="mode-menu" id="modeMenu">
+
+                    <button onclick="selectMode('Friendly')">
+                        ✨ Friendly
+                    </button>
+
+                    <button onclick="selectMode('Study')">
+                        📚 Study
+                    </button>
+
+                    <button onclick="selectMode('Coding')">
+                        💻 Coding
+                    </button>
+
+                    <button onclick="selectMode('Creative')">
+                        🎨 Creative
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="composer">
+
+                <textarea
+                    id="messageInput"
+                    placeholder="Message AI Remote..."
+                    rows="1"
+                    onkeydown="handleEnter(event)"
+                ></textarea>
+
+
+                <div class="composer-buttons">
+
+                    <button onclick="attachFile()" class="action-button">
+                        📎
+                    </button>
+
+                    <button onclick="startVoice()" class="action-button">
+                        🎤
+                    </button>
+
+                    <button onclick="sendMessage()" class="send-button">
+                        ➤
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-text">
+
+                <span>
+                    AI can make mistakes. Check important information.
+                </span>
+
+                <span>
+                    Enter to send · Shift + Enter for new line
+                </span>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>
+
